@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь | Кижинга: Официальный портал</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Вставь стиль */
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 10px; font-weight: 600; }
+        input, textarea { padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 8px; }
+        button { margin-top: 15px; padding: 12px; background: linear-gradient(135deg, #ff7e5f, #feb47b); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: transform 0.3s; }
+        button:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <!-- Header и nav -->
+    
+    <div class="container">
+        <section>
+            <h2>Обратная связь 📩</h2>
+            <form id="contactForm" action="mailto:admin@kizhinga.ru" method="post" enctype="text/plain">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Отправить 🚀</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Контакты 🔗</h2>
+            <p>Администрация: <a href="https://kizhinga.gosuslugi.ru/">gosuslugi.ru</a></p>
+            <p>Новости: <a href="https://vk.com/kizhinga_online">VK</a></p>
+            <p>Email: admin@kizhinga.ru</p>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <script>
+        // Валидация формы
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                e.preventDefault();
+                alert('Заполни все поля!');
+            } else if (!email.includes('@')) {
+                e.preventDefault();
+                alert('Неправильный email.');
+            }
+        });
+    </script>
+</body>
+</html>
