@@ -33,13 +33,14 @@
         .news-slide h3 { margin: 0; }
         footer { background: linear-gradient(135deg, #0033A0, #2575fc); color: white; text-align: center; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         footer div { text-align: left; }
+        iframe.video { width: 100%; height: 315px; border-radius: 10px; } /* Стиль для видео */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 900px) { .container { grid-template-columns: 1fr; } nav a { margin: 0 10px; } header { flex-direction: column; } #search-form { margin: 10px 0 0; } }
     </style>
 </head>
 <body>
     <header>
-        <img class="logo" src="https://hezhenge.ucoz.ru/pictures/geo/gerb.gif" alt="Герб Кижингинского района">
+        <img class="logo" src="images/gerb.jpeg" alt="Герб Кижингинского района">
         <h1>Кижинга: Официальный портал</h1>
         <form id="search-form">
             <input type="text" id="search-input" placeholder="Поиск по сайту...">
@@ -100,6 +101,13 @@
                     <p>Республиканская спартакиада в Кижингинском районе.</p>
                 </div>
             </section>
+
+            <!-- Новый раздел с видео -->
+            <section id="video">
+                <h2>Видео из Кижинги 🎥</h2>
+                <p>Аэросъёмка села Кижинга — виды на природу и окрестности.</p>
+                <iframe class="video" src="https://www.youtube.com/embed/IGkk1hhPQQY" title="Видео Кижинги" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
         </main>
         
         <aside>
@@ -122,56 +130,4 @@
         </div>
         <div>
             <h4>Социальные сети</h4>
-            <p><a href="https://vk.com/kizhinga_online" style="color: white;">VK</a></p>
-        </div>
-        <div>
-            <h4>Карта</h4>
-            <p>Кижинга, Бурятия</p>
-        </div>
-        <div>
-            <p>&copy; 2025 Кижинга. Все права защищены.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Плавная прокрутка (если нужны якоря внутри страницы)
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.href.includes('#')) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-
-        // Поиск (простой, по всей странице)
-        document.getElementById('search-button').addEventListener('click', function () {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                if (section.textContent.toLowerCase().includes(query)) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                    section.style.backgroundColor = '#fffacd';
-                    setTimeout(() => section.style.backgroundColor = 'white', 2000);
-                }
-            });
-        });
-
-        // Слайдер на главной
-        const newsSlides = document.getElementById('newsSlider');
-        if (newsSlides) {
-            let index = 0;
-            const slideCount = newsSlides.children.length;
-            setInterval(() => {
-                index = (index + 1) % slideCount;
-                newsSlides.style.transform = `translateX(-${index * 100}%)`;
-            }, 4000);
-        }
-    </script>
-</body>
-
-</html>
+            <p>
